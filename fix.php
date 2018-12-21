@@ -9,43 +9,67 @@ function error($message)
 }
 function getopen($character)
 {
-	if($character === '{')
+	$characters=
+	[
+		'{'=>'}',
+		'['=>']',
+		'('=>')',
+	];
+	if(isset($characters[$character]))
 	{
-		return '}';
+		return $characters[$character];
 	}
-	else if($character === '[')
-	{
-		return ']';
-	}
-	else if($character === '(')
-	{
-		return ')';
-	}
-	else
-	{
-		error("Unknown character!");
-		return;
-	}
+	error("Unknown character!");
+	return;
+	// if($character === '{')
+	// {
+	// 	return '}';
+	// }
+	// else if($character === '[')
+	// {
+	// 	return ']';
+	// }
+	// else if($character === '(')
+	// {
+	// 	return ')';
+	// }
+	// else
+	// {
+	// 	error("Unknown character!");
+	// 	return;
+	// }
 }
 function getclose($character)
 {
-	if($character === '}')
+	$characters=
+	[
+		'}'=>'{',
+		']'=>'[',
+		')'=>'(',
+	];
+	if(isset($characters[$character]))
 	{
-		return '{';
+		return $characters[$character];
 	}
-	else if($character === ']')
-	{
-		return '[';
-	}
-	else if($character === ')')
-	{
-		return '(';
-	}
-	else
-	{
-		error("Unknown character!");
-		return;
-	}
+	error("Unknown character!");
+	return;
+	// if($character === '}')
+	// {
+	// 	return '{';
+	// }
+	// else if($character === ']')
+	// {
+	// 	return '[';
+	// }
+	// else if($character === ')')
+	// {
+	// 	return '(';
+	// }
+	// else
+	// {
+	// 	error("Unknown character!");
+	// 	return;
+	// }
 }
 function close($character)
 {
